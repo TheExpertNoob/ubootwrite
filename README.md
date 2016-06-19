@@ -17,12 +17,12 @@ Use Python (preferably 3.0+) to run the tool: ```python ubootwrite.py [OPTIONS]`
 * ```--addr``` - The RAM start address to write to, e.g. ```--addr=0x80050000```.  
 * ```--size``` - The number of bytes to transfer, e.g. ```--size=12345```. Omit to transfer the whole file.
 
-**An example for a full command line could be:**  
-```python ubootwrite.py --serial=/dev/ttyUSB6 --write=openwrt-squashfs.image --addr=0x80050000```  
-This can take a looong time. Be patient. Once you have the data in RAM you can copy it to flash by:  
+**An example for a full command line could be (zsun):**  
+```python ubootwrite.py --serial=/dev/ttyUSB0 --write=sysupgrade.image --addr=0x80060000```  
+This can take a looong time(5 hours for zsun). Be patient. Once you have the data in RAM you can copy it to flash by:  
 Unprotecting flash: ```protect off all```  
-Erasing the sectors: ```erase [ADDRESS_IN_FLASH] +[SIZE_OF_DATA]``` (all in hex)  
-Copying the data to flash: ```cp.b [RAM_ADRESS] [ADDRESS_IN_FLASH] [SIZE_OF_DATA]``` (all in hex)  
+Erasing the sectors: ```erase 9f020000 +${filesize}``` (all in hex)  
+Copying the data to flash: ```cp.b 80060000 9f020000 ${filesize}``` (all in hex)  
 
 FAQ
 ========
