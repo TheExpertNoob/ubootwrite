@@ -27,7 +27,12 @@ Copying the data to flash: ```cp.b 80060000 9f020000 ${filesize}``` (all in hex)
 FAQ
 ========
 **Q:** I'm on linux and I can not access the serial port somehow...  
-**A:** You might need to add your USERNAME to the dialout group: ```sudo usermod -a -G dialout USERNAME``` or use sudo.  
+**A:** You might need to root: ```sudo bash```
+
+Dependencies
+========
+python
+python-serial
 
 I found a bug or have a suggestion
 ========
