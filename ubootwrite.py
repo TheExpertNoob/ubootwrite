@@ -136,8 +136,8 @@ def memwrite(ser, path, size, start_addr, verbose, debug):
                 print("\rProgress 100%                            ")
                 print("File successfully written. You should run 'crc32" + " {0:08x}".format(start_addr) + " {0:08x}".format(bytes_read) + "' on the modem and the result must be" + " {0:08x}".format(crc32_checksum) + ".")
                 print("To copy from RAM to flash, unprotect flash: 'protect off all'...")
-                print("Then erase flash: 'erase" + " {0:08x}".format((start_addr - 0x80000000) + 0xb0000000) + " +{0:08x}".format(bytes_read) + "'.")
-                print("Then copy from RAM to flash: 'cp.b", " {0:08x}".format(start_addr), " {0:08x}".format((start_addr - 0x80000000) + 0xb0000000) + " {0:08x}".format(bytes_read), "'.")
+                print("Then erase flash: 'erase 9f020000" + " +{0:08x}".format(bytes_read) + "'.")
+                print("Then copy from RAM to flash: 'cp.b", " {0:08x}".format(start_addr), " + 9f020000 + " {0:08x}".format(bytes_read), "'.")
 
         fd.close()
         return
