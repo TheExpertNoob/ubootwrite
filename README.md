@@ -31,8 +31,8 @@ FAQ
 
 Dependencies
 ========
-python
-python-serial
+* python
+* python-serial
 
 I found a bug or have a suggestion
 ========
